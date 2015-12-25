@@ -51,9 +51,10 @@ public class ModNavigationBar
 				int colorPrimaryDark = a.getColor(theme_colorPrimaryDark, Color.TRANSPARENT);
 				a.recycle();
 
-				if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK) {
+				String className = activity.getClass().getName();
+
+				if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK && !className.equals("com.android.systemui.recents.RecentsActivity"))
 					activity.getWindow().setNavigationBarColor(colorPrimaryDark);
-				}
 			}
 		});
 	}
