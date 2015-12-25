@@ -26,7 +26,12 @@ public class ModNavigationBar
 		final int[] theme = (int[]) internalThemeField.get(null);
 		final int theme_colorPrimaryDark = internalColorPrimaryDarkField.getInt(null);
 
-		XposedHelpers.findAndHookMethod("com.android.internal.policy.impl.PhoneWindow", loader, "setStatusBarColor", int.class, new XC_MethodHook() {
+		String class_path = "com.android.internal.policy.impl.PhoneWindow";
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+			class_path = "com.android.internal.policy.PhoneWindow";
+		
+		XposedHelpers.findAndHookMethod(class_path, loader, "setStatusBarColor", int.class, new XC_MethodHook() {
 			@Override
 			protected void afterHookedMethod(XC_MethodHook.MethodHookParam mhparams) throws Throwable {
 				int color = Integer.valueOf(mhparams.args[0].toString());
