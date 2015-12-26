@@ -4,7 +4,12 @@
 		android:key="developer"
 		android:title="@string/developer"
 		android:summary="@string/developer_sum"/>
-	
+
+	<Preference
+		android:key="maintainer"
+		android:title="@string/maintainer"
+		android:summary="@string/maintainer_sum"/>
+
 	<Preference
 		android:key="icon"
 		android:title="@string/icon"

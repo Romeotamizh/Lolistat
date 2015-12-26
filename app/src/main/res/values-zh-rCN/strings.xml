@@ -17,7 +17,7 @@
 	<string name="icon_sum">图标来自 Android Open Source Project 协议为 Apache License 2.0</string>
 	<string name="version">版本</string>
 	<string name="source_code">源代码</string>
-	<string name="source_code_sum">https://github.com/PeterCxy/Lolistat</string>
+	<string name="source_code_sum">https://github.com/joserebelo/Lolistat</string>
 	<string name="license">开源协议</string>
 	<string name="license_sum">本模块在 GNU GPLv3 授权下开放源代码.\n您可以在源代码中获取协议文本.</string>
 	<string name="donation">捐赠</string>

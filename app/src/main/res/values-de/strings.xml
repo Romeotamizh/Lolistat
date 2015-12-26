@@ -17,7 +17,7 @@
 	<string name="icon_sum">Das Icon dieser App stammt vom Android Open Source Project und ist unter der Apache License 2.0 lizenziert.</string>
 	<string name="version">Version</string>
 	<string name="source_code">Quellcode</string>
-	<string name="source_code_sum">https://github.com/PeterCxy/Lolistat</string>
+	<string name="source_code_sum">https://github.com/joserebelo/Lolistat</string>
 	<string name="license">Lizenz</string>
 	<string name="license_sum">Quellcode lizenziert unter der GNU GPLv3 Lizenz.\nEine Kopie dieser Lizenz ist unter dem Link "Quellcode" aufrufbar.</string>
 	<string name="donation">Spenden</string>

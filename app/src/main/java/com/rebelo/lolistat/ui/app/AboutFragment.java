@@ -16,8 +16,9 @@ public class AboutFragment extends BasePreferenceFragment
 	private static final String SOURCE_CODE = "source_code";
 	private static final String LICENSE = "license";
 	private static final String DONATION = "donation";
+	private static final String EMAIL = "email";
 
-	private Preference mVersion, mSourceCode, mLicense, mDonation;
+	private Preference mVersion, mSourceCode, mLicense, mDonation, mEmail;
 
 	@Override
 	protected void onPreferenceLoaded() {
@@ -29,14 +30,16 @@ public class AboutFragment extends BasePreferenceFragment
 		mSourceCode = $(this, SOURCE_CODE);
 		mLicense = $(this, LICENSE);
 		mDonation = $(this, DONATION);
+		mEmail = $(this, EMAIL);
 
 		// TODO: Make donations available
 		getPreferenceScreen().removePreference(mDonation);
-		
+		getPreferenceScreen().removePreference(mEmail);
+
 		// Set values
 		String ver;
 		try {
-			ver = getActivity().getPackageManager().getPackageInfo("info.papdt.swipeback", 0).versionName;
+			ver = getActivity().getPackageManager().getPackageInfo("com.rebelo.lolistat", 0).versionName;
 		} catch (Exception e) {
 			ver = "?";
 		}
@@ -54,7 +57,7 @@ public class AboutFragment extends BasePreferenceFragment
 	public boolean onPreferenceClick(Preference pref) {
 		if (pref == mSourceCode) {
 			Intent i = new Intent(Intent.ACTION_VIEW);
-			i.setData(Uri.parse("https://github.com/PaperAirplane-Dev-Team/SwipeBack"));
+			i.setData(Uri.parse("https://github.com/joserebelo/Lolistat"));
 			startActivity(i);
 			return true;
 		} else if (pref == mLicense) {

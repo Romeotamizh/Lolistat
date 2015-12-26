@@ -17,7 +17,7 @@
 	<string name="icon_sum">Ikona tejto aplikácie je z Android Open Source Project s licenciou Apache License 2.0.</string>
 	<string name="version">Verzia</string>
 	<string name="source_code">Zdrojový kód</string>
-	<string name="source_code_sum">https://github.com/PeterCxy/Lolistat</string>
+	<string name="source_code_sum">https://github.com/joserebelo/Lolistat</string>
 	<string name="license">Licencia</string>
 	<string name="license_sum">Zdrojový kód je licencovaný pod GNU GPLv3.\nMôžete získať kópiu licencie cez odkaz "Zdrojový kód".</string>
 	<string name="donation">Podporiť</string>
