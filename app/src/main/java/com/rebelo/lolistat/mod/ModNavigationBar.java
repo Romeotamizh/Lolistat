@@ -13,6 +13,7 @@ import de.robv.android.xposed.XC_MethodHook;
 import java.lang.reflect.Field;
 
 import com.rebelo.lolistat.support.Settings;
+import com.rebelo.lolistat.support.Utility;
 
 public class ModNavigationBar
 {
@@ -27,10 +28,12 @@ public class ModNavigationBar
 		final int[] theme = (int[]) internalThemeField.get(null);
 		final int theme_colorPrimaryDark = internalColorPrimaryDarkField.getInt(null);
 
-		String class_path = "com.android.internal.policy.impl.PhoneWindow";
+		String class_path;
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
 			class_path = "com.android.internal.policy.PhoneWindow";
+		else
+			class_path = "com.android.internal.policy.impl.PhoneWindow";
 
 		XposedHelpers.findAndHookMethod(class_path, loader, "setStatusBarColor", int.class, new XC_MethodHook() {
 			@Override
@@ -47,13 +50,17 @@ public class ModNavigationBar
 			protected void afterHookedMethod(XC_MethodHook.MethodHookParam mhparams) throws Throwable {
 				Activity activity = (Activity) mhparams.thisObject;
 
+				String packageName = activity.getApplicationInfo().packageName;
+				String className = activity.getClass().getName();
+
+				// Ignore if launcher or recents screen
+				if (Utility.isLauncher(activity, packageName) || className.equals("com.android.systemui.recents.RecentsActivity")) return;
+
 				TypedArray a = activity.getTheme().obtainStyledAttributes(theme);
 				int colorPrimaryDark = a.getColor(theme_colorPrimaryDark, Color.TRANSPARENT);
 				a.recycle();
 
-				String className = activity.getClass().getName();
-
-				if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK && !className.equals("com.android.systemui.recents.RecentsActivity"))
+				if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK)
 					activity.getWindow().setNavigationBarColor(colorPrimaryDark);
 			}
 		});
