@@ -4,7 +4,7 @@ This is an Xposed module. It is aimed to "fix" the style of some apps on Lollipo
 
 Building
 ---
-The module is originally developed by AIDE (IDE running on Android), if you want to build with Android Studio, you should replace the XposedBridgeApi.jar with the one provided by rovo89 and then change the "compile" in build.gradle to "provided"
+The module is developed in Android Studio, you can just import it and it should build without problems.
 
 License
 ---
