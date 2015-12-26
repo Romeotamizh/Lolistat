@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -65,61 +66,65 @@ public class ModLoli implements IXposedHookLoadPackage, IXposedHookZygoteInit
 			@Override
 			protected void afterHookedMethod(XC_MethodHook.MethodHookParam mhparams) throws Throwable {
 				Activity activity = (Activity) mhparams.thisObject;
-				
+
 				// Ignore floating activities
 				int isFloating = XposedHelpers.getStaticIntField(XposedHelpers.findClass("com.android.internal.R.styleable", null), "Window_windowIsFloating");
 				if (activity.getWindow().getWindowStyle().getBoolean(isFloating, false))
 					return;
-					
+
 				// Ignore translucent activities
 				int isTranslucent = XposedHelpers.getStaticIntField(XposedHelpers.findClass("com.android.internal.R.styleable", null), "Window_windowTranslucentStatus");
 				if (activity.getWindow().getWindowStyle().getBoolean(isTranslucent, false))
 					return;
-					
+
 				String packageName = activity.getApplicationInfo().packageName;
 				String className = activity.getClass().getName();
 				
 				if (packageName.equals("com.android.systemui"))
 					return;
-				
+
 				mSettings.reload();
 				
 				// Ignore if blacklisted
 				if (!mSettings.getBoolean(packageName, className, Settings.ENABLED, true))
 					return;
-				
+
+				// Force tint from app color
+				Boolean force_tint = mSettings.getBoolean(packageName, className, Settings.FORCE_TINT, false);
+
 				// custom color
 				int custom = mSettings.getInt(packageName, className, Settings.CUSTOM_COLOR, 0);
 				
-				if (custom != 0)
+				if (custom != 0 && !force_tint)
 					activity.getWindow().setStatusBarColor(custom);
-				
+
 				// Ignore if launcher
 				if (Utility.isLauncher(activity, packageName)) return;
-				
+
 				// Ignore if custom color defined
-				if (custom != 0) return;
-				
+				if (custom != 0 && !force_tint) return;
+
 				// Ignore if have defined colorPrimaryDark already
 				TypedArray a = activity.getTheme().obtainStyledAttributes(theme);
 				int colorPrimaryDark = a.getColor(theme_colorPrimaryDark, Color.TRANSPARENT);
 				boolean translucentStatus = a.getBoolean(theme_translucentStatus, false);
 				a.recycle();
 				
-				if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK) return;
-				
+				if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK && !force_tint) return;
+
 				if (translucentStatus) return;
-				
+
 				final Window window = activity.getWindow();
 				int flags = window.getAttributes().flags;
 				
 				if ((flags & WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS) != 0 ||
 					((flags & WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS) != 0 &&
-						activity.getWindow().getStatusBarColor() != Color.TRANSPARENT)) {
+						activity.getWindow().getStatusBarColor() != Color.TRANSPARENT) &&
+							!force_tint) {
 					
 					return;
 				}
-				
+
 				ViewGroup decor = (ViewGroup) window.getDecorView();
 				int sysui = decor.findViewById(android.R.id.content).getSystemUiVisibility();
 
@@ -128,9 +133,9 @@ public class ModLoli implements IXposedHookLoadPackage, IXposedHookZygoteInit
 					(sysui & View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) != 0) {
 					return;
 				}
-				
+
 				window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-				
+
 				// HACK: Steal root layout to fit system windows
 				// But we do not need to worry about fullscreen windows
 				if ((flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) == 0) {

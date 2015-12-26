@@ -21,9 +21,9 @@ public class SettingsFragment extends BasePreferenceFragment
 	private Settings mSettings;
 	
 	private SwitchPreference mEnable;
-	private CheckBoxPreference mNav, mStatus;
+	private CheckBoxPreference mNav, mStatus, mForceTint;
 	private EditTextPreference mColor;
-	
+
 	private String mPackageName, mClassName;
 
 	@Override
@@ -42,12 +42,13 @@ public class SettingsFragment extends BasePreferenceFragment
 		mNav = $(this, Settings.TINT_NAVIGATION);
 		mStatus = $(this, Settings.TINT_ICONS);
 		mColor = $(this, Settings.CUSTOM_COLOR);
-		
+		mForceTint = $(this, Settings.FORCE_TINT);
+
 		// Default values
 		reload();
 		
 		// Bind
-		$$(mEnable, mNav, mStatus, mColor);
+		$$(mEnable, mNav, mStatus, mColor, mForceTint);
 	}
 
 	@Override
@@ -64,6 +65,9 @@ public class SettingsFragment extends BasePreferenceFragment
 			return true;
 		} else if (preference == mColor) {
 			putInt(Settings.CUSTOM_COLOR, Color.parseColor(newValue.toString()));
+			return true;
+		} else if (preference == mForceTint) {
+			putBoolean(Settings.FORCE_TINT, (Boolean) newValue);
 			return true;
 		} else {
 			return false;
@@ -101,6 +105,7 @@ public class SettingsFragment extends BasePreferenceFragment
 	
 	private void reload() {
 		mEnable.setChecked(getBoolean(Settings.ENABLED, true));
+		mForceTint.setChecked(getBoolean(Settings.FORCE_TINT, false));
 		mColor.setText(String.format("#%06X", 0xFFFFFF & getInt(Settings.CUSTOM_COLOR, 0)));
 
 		if (!mPackageName.equals("global") || !mClassName.equals("global")) {

@@ -11,16 +11,23 @@
 		android:title="@string/tint_navigation"
 		android:checked="true"
 		android:dependency="enabled"/>
-	
+
 	<CheckBoxPreference
 		android:key="tint_icons"
 		android:title="@string/tint_icons"
 		android:checked="true"
 		android:dependency="enabled"/>
-	
+
+	<CheckBoxPreference
+		android:key="force_tint"
+		android:title="@string/force_tint"
+		android:checked="false"
+		android:dependency="enabled"
+		android:disableDependentsState="true"/>
+
 	<EditTextPreference
 		android:key="custom_color"
 		android:title="@string/custom_color"
-		android:dependency="enabled"/>
+		android:dependency="force_tint" />
 	
 </PreferenceScreen>

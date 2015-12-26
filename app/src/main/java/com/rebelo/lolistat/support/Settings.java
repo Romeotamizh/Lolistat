@@ -16,7 +16,8 @@ public abstract class Settings
 	public static final String TINT_NAVIGATION = "tint_navigation";
 	public static final String TINT_ICONS = "tint_icons";
 	public static final String CUSTOM_COLOR = "custom_color";
-	
+	public static final String FORCE_TINT = "force_tint";
+
 	private static final String PREF = "pref";
 	private static final String GLOBAL = "global";
 
@@ -25,7 +26,8 @@ public abstract class Settings
 		ENABLED,
 		TINT_NAVIGATION,
 		TINT_ICONS,
-		CUSTOM_COLOR
+		CUSTOM_COLOR,
+		FORCE_TINT
 	};
 
 	private static XSettings sXSettings;
