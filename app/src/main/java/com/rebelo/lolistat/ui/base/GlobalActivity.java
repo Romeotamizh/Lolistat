@@ -1,4 +1,4 @@
-package info.papdt.lolistat.ui.base;
+package com.rebelo.lolistat.ui.base;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toolbar;
 
-import info.papdt.lolistat.R;
-import info.papdt.lolistat.ui.app.AboutFragment;
-import info.papdt.lolistat.ui.app.LicenseFragment;
-import info.papdt.lolistat.ui.app.PerActivityFragment;
-import info.papdt.lolistat.ui.app.PerAppFragment;
-import info.papdt.lolistat.ui.app.SettingsFragment;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import com.rebelo.lolistat.ui.app.AboutFragment;
+import com.rebelo.lolistat.ui.app.LicenseFragment;
+import com.rebelo.lolistat.ui.app.PerActivityFragment;
+import com.rebelo.lolistat.ui.app.PerAppFragment;
+import com.rebelo.lolistat.ui.app.SettingsFragment;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public class GlobalActivity extends Activity
 {

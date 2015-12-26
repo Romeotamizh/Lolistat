@@ -1,4 +1,4 @@
-package info.papdt.lolistat.mod;
+package com.rebelo.lolistat.mod;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -9,8 +9,8 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.XC_MethodHook;
 
-import info.papdt.lolistat.support.Settings;
-import static info.papdt.lolistat.BuildConfig.DEBUG;
+import com.rebelo.lolistat.support.Settings;
+import static com.rebelo.lolistat.BuildConfig.DEBUG;
 
 public class ModSystemUI
 {

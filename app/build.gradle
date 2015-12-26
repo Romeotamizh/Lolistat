@@ -5,11 +5,11 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "info.papdt.lolistat"
+        applicationId "com.rebelo.lolistat"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 9
-        versionName "1.1.4"
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         release {

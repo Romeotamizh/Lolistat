@@ -1,11 +1,11 @@
-package info.papdt.lolistat.ui.app;
+package com.rebelo.lolistat.ui.app;
 
 import android.view.View;
 import android.webkit.WebView;
 
-import info.papdt.lolistat.R;
-import info.papdt.lolistat.ui.base.BaseFragment;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import com.rebelo.lolistat.ui.base.BaseFragment;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public class LicenseFragment extends BaseFragment
 {

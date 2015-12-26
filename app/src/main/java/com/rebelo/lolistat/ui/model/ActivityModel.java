@@ -1,4 +1,4 @@
-package info.papdt.lolistat.ui.model;
+package com.rebelo.lolistat.ui.model;
 
 public class ActivityModel
 {

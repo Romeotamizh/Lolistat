@@ -1,4 +1,4 @@
-package info.papdt.lolistat.ui.adapter;
+package com.rebelo.lolistat.ui.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -14,9 +14,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import info.papdt.lolistat.R;
-import info.papdt.lolistat.ui.model.AppModel;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import com.rebelo.lolistat.ui.model.AppModel;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public class AppAdapter extends BaseAdapter implements Filterable
 {

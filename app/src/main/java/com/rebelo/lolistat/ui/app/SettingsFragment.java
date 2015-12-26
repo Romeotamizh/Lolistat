@@ -1,9 +1,8 @@
-package info.papdt.lolistat.ui.app;
+package com.rebelo.lolistat.ui.app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.os.Build;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
@@ -12,13 +11,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import info.papdt.lolistat.R;
-import info.papdt.lolistat.support.Settings;
-import info.papdt.lolistat.ui.base.BasePreferenceFragment;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import com.rebelo.lolistat.support.Settings;
+import com.rebelo.lolistat.ui.base.BasePreferenceFragment;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public class SettingsFragment extends BasePreferenceFragment
 {

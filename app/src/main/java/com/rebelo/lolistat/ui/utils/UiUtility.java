@@ -1,4 +1,4 @@
-package info.papdt.lolistat.ui.utils;
+package com.rebelo.lolistat.ui.utils;
 
 import android.app.Activity;
 import android.preference.Preference;

@@ -1,6 +1,5 @@
-package info.papdt.lolistat.ui.model;
+package com.rebelo.lolistat.ui.model;
 
-import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
 
 import java.lang.ref.WeakReference;

@@ -1,4 +1,4 @@
-package info.papdt.lolistat.support;
+package com.rebelo.lolistat.support;
 
 import android.content.Context;
 import android.content.Intent;

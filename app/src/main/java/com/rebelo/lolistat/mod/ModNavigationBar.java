@@ -1,4 +1,4 @@
-package info.papdt.lolistat.mod;
+package com.rebelo.lolistat.mod;
 
 import android.app.Activity;
 import android.content.res.TypedArray;
@@ -12,7 +12,7 @@ import de.robv.android.xposed.XC_MethodHook;
 
 import java.lang.reflect.Field;
 
-import info.papdt.lolistat.support.Settings;
+import com.rebelo.lolistat.support.Settings;
 
 public class ModNavigationBar
 {

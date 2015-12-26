@@ -1,4 +1,4 @@
-package info.papdt.lolistat.mod;
+package com.rebelo.lolistat.mod;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -6,11 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -20,18 +16,15 @@ import android.widget.FrameLayout;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
-import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import info.papdt.lolistat.support.Settings;
-import info.papdt.lolistat.support.Utility;
-import static info.papdt.lolistat.BuildConfig.DEBUG;
+import com.rebelo.lolistat.support.Settings;
+import com.rebelo.lolistat.support.Utility;
 
 public class ModLoli implements IXposedHookLoadPackage, IXposedHookZygoteInit
 {

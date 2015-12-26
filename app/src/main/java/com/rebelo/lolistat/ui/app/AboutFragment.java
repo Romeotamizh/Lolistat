@@ -1,12 +1,12 @@
-package info.papdt.lolistat.ui.app;
+package com.rebelo.lolistat.ui.app;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.preference.Preference;
 
-import info.papdt.lolistat.R;
-import info.papdt.lolistat.ui.base.BasePreferenceFragment;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import com.rebelo.lolistat.ui.base.BasePreferenceFragment;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public class AboutFragment extends BasePreferenceFragment
 {

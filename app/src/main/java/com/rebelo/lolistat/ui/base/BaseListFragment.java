@@ -1,4 +1,4 @@
-package info.papdt.lolistat.ui.base;
+package com.rebelo.lolistat.ui.base;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -11,8 +11,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import info.papdt.lolistat.R;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public abstract class BaseListFragment<T> extends BaseFragment 
 {

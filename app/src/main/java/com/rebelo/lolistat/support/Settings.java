@@ -1,4 +1,4 @@
-package info.papdt.lolistat.support;
+package com.rebelo.lolistat.support;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,7 @@ import android.util.Log;
 
 import de.robv.android.xposed.XSharedPreferences;
 
-import static info.papdt.lolistat.BuildConfig.DEBUG;
+import static com.rebelo.lolistat.BuildConfig.DEBUG;
 
 public abstract class Settings
 {
@@ -102,7 +102,7 @@ public abstract class Settings
 		private XSharedPreferences mPref;
 
 		XSettings() {
-			mPref = new XSharedPreferences("info.papdt.lolistat", PREF);
+			mPref = new XSharedPreferences("com.rebelo.mallowstat", PREF);
 			mPref.makeWorldReadable();
 		}
 

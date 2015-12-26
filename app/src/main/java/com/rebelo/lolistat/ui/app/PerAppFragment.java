@@ -1,4 +1,4 @@
-package info.papdt.lolistat.ui.app;
+package com.rebelo.lolistat.ui.app;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -17,12 +17,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import info.papdt.lolistat.R;
-import info.papdt.lolistat.ui.adapter.AppAdapter;
-import info.papdt.lolistat.ui.base.BaseListFragment;
-import info.papdt.lolistat.ui.base.GlobalActivity;
-import info.papdt.lolistat.ui.model.AppModel;
-import static info.papdt.lolistat.ui.utils.UiUtility.*;
+import com.rebelo.lolistat.R;
+import com.rebelo.lolistat.ui.adapter.AppAdapter;
+import com.rebelo.lolistat.ui.base.BaseListFragment;
+import com.rebelo.lolistat.ui.model.AppModel;
+import static com.rebelo.lolistat.ui.utils.UiUtility.*;
 
 public class PerAppFragment extends BaseListFragment<AppModel>
 {
