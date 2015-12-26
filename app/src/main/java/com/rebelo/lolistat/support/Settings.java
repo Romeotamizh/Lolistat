@@ -102,7 +102,7 @@ public abstract class Settings
 		private XSharedPreferences mPref;
 
 		XSettings() {
-			mPref = new XSharedPreferences("com.rebelo.mallowstat", PREF);
+			mPref = new XSharedPreferences("com.rebelo.lolistat", PREF);
 			mPref.makeWorldReadable();
 		}
 
