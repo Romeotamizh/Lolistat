@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about">Sobre</string>
+    <string name="app_name">Lolistat</string>
+    <string name="developer">Desenvolvedor Original</string>
+    <string name="developer_sum">Peter Cai (@PeterCxy)</string>
+    <string name="donation">Doar</string>
+    <string name="donation_sum">"Se você gostou deste módulo e gostaria de apoiar o desenvolvimento deste e demais módulos escritos por mim, você pode fazer uma doação via
+Paypal: xqsx43cxy@126.com
+Alipay: xqsx43cxy@gmail.com
+Clique aqui para doar diretamente através do link de doação do Paypal"</string>
+    <string name="email">Email</string>
+    <string name="email_sum">"peter@typeblog.net
+Por favor, não envie emails usando os endereços de doações."</string>
+    <string name="icon">Ícone</string>
+    <string name="icon_sum">O ícone deste aplicativo é do Projeto Android Open Source licenciado sob licença Apache 2.0</string>
+    <string name="license">Licença</string>
+    <string name="license_sum">"Código-fonte licenciado sob a GNU GPLv3.
+Você pode obter uma cópia da licença através do link Código Fonte."</string>
+    <string name="plz_wait">Por favor aguarde...</string>
+    <string name="save">Guardar</string>
+    <string name="source_code">Código-fonte</string>
+    <string name="source_code_sum">https://github.com/joserebelo/Lolistat</string>
+    <string name="tint_icons">Colorir Ícones de Notificação</string>
+    <string name="tint_navigation">Colorir Barra de Navegação</string>
+    <string name="version">Versão</string>
+    <string name="custom_color">Personalizar cor</string>
+    <string name="enabled">Ativado</string>
+    <string name="force_tint">Forçar detecção da cor</string>
+    <string name="global">Global (Pode ser substituído)</string>
+    <string name="global_short">Global</string>
+    <string name="maintainer">Manutenção</string>
+    <string name="maintainer_sum">José Rebelo</string>
+    <string name="reset">Repor</string>
+    <string name="reset_confirm">Deseja repor?</string>
+    <string name="search">Pesquisar</string>
+</resources>

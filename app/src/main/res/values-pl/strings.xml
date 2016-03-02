@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Lolistat</string>
+
+    <!-- Settings -->
+    <string name="global">Globalny (może być zastąpiony)</string>
+    <string name="global_short">Globalny</string>
+    <string name="search">Szukaj</string>
+    <string name="enabled">Włączony</string>
+    <string name="tint_navigation">Koloruj pasek nawigacji</string>
+    <string name="tint_icons">Koloruj ikony paska statusu</string>
+    <string name="custom_color">Niestandardowy kolor paska statusu</string>
+    <string name="force_tint">Wymuszanie automatycznego wykrycia koloru</string>
+    <string name="about">O aplikacji</string>
+
+    <!-- About -->
+    <string name="developer">Originalny deweloper</string>
+    <string name="developer_sum">Peter Cai (@PeterCxy)</string>
+    <string name="maintainer">Opiekun</string>
+    <string name="maintainer_sum">José Rebelo</string>
+    <string name="icon">Ikona</string>
+    <string name="icon_sum">The icon of this app is from Android Open Source Project licensed under Apache License 2.0</string>
+    <string name="version">Wersja</string>
+    <string name="source_code">Kod źródłowy</string>
+    <string name="source_code_sum">https://github.com/joserebelo/Lolistat</string>
+    <string name="license">Licencja</string>
+    <string name="license_sum">Source code licensed under GNU GPLv3.\nYou can get a copy of the license via the "Source Code" link</string>
+    <string name="donation">Dotacja</string>
+    <string name="donation_sum">If you like this module and would like to support the development of this module and other modules written by me, you could donate via\nPaypal: xqsx43cxy@126.com\nAlipay: xqsx43cxy@gmail.com\nClick here to donate directly via Paypal\'s donation link</string>
+    <string name="email">Email</string>
+    <string name="email_sum">peter@typeblog.net\nPlease do not e-mail to the addresses in "Donate" section.</string>
+
+    <!-- Messages -->
+    <string name="plz_wait">Proszę czekać...</string>
+    <string name="save">Zapisz</string>
+    <string name="reset">Resetuj</string>
+    <string name="reset_confirm">Potwierdzić reset?</string>
+
+</resources>
