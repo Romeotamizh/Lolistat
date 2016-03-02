@@ -18,7 +18,7 @@ import com.rebelo.lolistat.support.Utility;
 public class ModNavigationBar
 {
 	public static void hookNavigationBar(ClassLoader loader) throws Throwable {
-		Settings settings = Settings.getInstance(null);
+		final Settings settings = Settings.getInstance(null);
 		
 		if (!settings.getBoolean("global", "global", Settings.TINT_NAVIGATION, true)) return;
 
@@ -52,6 +52,12 @@ public class ModNavigationBar
 
 				String packageName = activity.getApplicationInfo().packageName;
 				String className = activity.getClass().getName();
+
+				settings.reload();
+
+				// Ignore if blacklisted
+				if (!settings.getBoolean(packageName, className, Settings.ENABLED, true))
+					return;
 
 				// Ignore if launcher or recents screen
 				if (Utility.isLauncher(activity, packageName) || className.equals("com.android.systemui.recents.RecentsActivity")) return;
