@@ -17,6 +17,7 @@ public abstract class Settings
 	public static final String TINT_ICONS = "tint_icons";
 	public static final String CUSTOM_COLOR = "custom_color";
 	public static final String FORCE_TINT = "force_tint";
+	public static final String USE_CUSTOM = "use_custom_color";
 
 	private static final String PREF = "pref";
 	private static final String GLOBAL = "global";

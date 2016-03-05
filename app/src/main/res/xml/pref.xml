@@ -25,9 +25,15 @@
 		android:dependency="enabled"
 		android:disableDependentsState="true"/>
 
+	<CheckBoxPreference
+		android:key="use_custom_color"
+		android:title="@string/use_custom_color"
+		android:checked="false"
+		android:dependency="force_tint"/>
+
 	<EditTextPreference
 		android:key="custom_color"
 		android:title="@string/custom_color"
-		android:dependency="force_tint" />
+		android:dependency="use_custom_color" />
 	
 </PreferenceScreen>

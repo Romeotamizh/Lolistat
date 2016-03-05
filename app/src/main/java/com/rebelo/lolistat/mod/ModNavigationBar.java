@@ -40,8 +40,8 @@ public class ModNavigationBar
 			protected void afterHookedMethod(XC_MethodHook.MethodHookParam mhparams) throws Throwable {
 				int color = Integer.valueOf(mhparams.args[0].toString());
 
-				if (color != 0)
-					((Window) mhparams.thisObject).setNavigationBarColor(color);
+				//if (color != 0)
+				((Window) mhparams.thisObject).setNavigationBarColor(color);
 			}
 		});
 

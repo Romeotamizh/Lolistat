@@ -21,7 +21,7 @@ public class SettingsFragment extends BasePreferenceFragment
 	private Settings mSettings;
 	
 	private SwitchPreference mEnable;
-	private CheckBoxPreference mNav, mStatus, mForceTint;
+	private CheckBoxPreference mNav, mStatus, mForceTint, mUseCustom;
 	private EditTextPreference mColor;
 
 	private String mPackageName, mClassName;
@@ -43,12 +43,13 @@ public class SettingsFragment extends BasePreferenceFragment
 		mStatus = $(this, Settings.TINT_ICONS);
 		mColor = $(this, Settings.CUSTOM_COLOR);
 		mForceTint = $(this, Settings.FORCE_TINT);
+		mUseCustom = $(this, Settings.USE_CUSTOM);
 
 		// Default values
 		reload();
 		
 		// Bind
-		$$(mEnable, mNav, mStatus, mColor, mForceTint);
+		$$(mEnable, mNav, mStatus, mColor, mForceTint, mUseCustom);
 	}
 
 	@Override
@@ -82,6 +83,9 @@ public class SettingsFragment extends BasePreferenceFragment
 			}
 		} else if (preference == mForceTint) {
 			putBoolean(Settings.FORCE_TINT, (Boolean) newValue);
+			return true;
+		} else if(preference == mUseCustom) {
+			putBoolean(Settings.USE_CUSTOM, (Boolean) newValue);
 			return true;
 		} else {
 			return false;
@@ -120,6 +124,7 @@ public class SettingsFragment extends BasePreferenceFragment
 	private void reload() {
 		mEnable.setChecked(getBoolean(Settings.ENABLED, true));
 		mForceTint.setChecked(getBoolean(Settings.FORCE_TINT, false));
+		mUseCustom.setChecked(getBoolean(Settings.USE_CUSTOM, false));
 		int color = getInt(Settings.CUSTOM_COLOR, 0xFF000000);
 		if((color & 0xFF000000) == 0xFF000000 && color != 0xFF000000)
 			mColor.setText(String.format("#%06X", 0xFFFFFF & color));
@@ -130,6 +135,7 @@ public class SettingsFragment extends BasePreferenceFragment
 			getPreferenceScreen().removePreference(mNav);
 			getPreferenceScreen().removePreference(mStatus);
 		} else {
+			getPreferenceScreen().removePreference(mUseCustom);
 			getPreferenceScreen().removePreference(mColor);
 			mNav.setChecked(getBoolean(Settings.TINT_NAVIGATION, true));
 			mStatus.setChecked(getBoolean(Settings.TINT_ICONS, false));

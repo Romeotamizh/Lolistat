@@ -92,17 +92,19 @@ public class ModLoli implements IXposedHookLoadPackage, IXposedHookZygoteInit
 				// Force tint from app color
 				Boolean force_tint = mSettings.getBoolean(packageName, className, Settings.FORCE_TINT, false);
 
+
 				// custom color
+				Boolean use_custom = mSettings.getBoolean(packageName, className, Settings.USE_CUSTOM, false);
 				int custom = mSettings.getInt(packageName, className, Settings.CUSTOM_COLOR, 0);
 				
-				if (custom != 0 && !force_tint)
+				if (use_custom && !force_tint)
 					activity.getWindow().setStatusBarColor(custom);
 
 				// Ignore if launcher
 				if (Utility.isLauncher(activity, packageName)) return;
 
 				// Ignore if custom color defined
-				if (custom != 0 && !force_tint) return;
+				if (use_custom && !force_tint) return;
 
 				// Ignore if have defined colorPrimaryDark already
 				TypedArray a = activity.getTheme().obtainStyledAttributes(theme);
