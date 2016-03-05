@@ -13,7 +13,9 @@
 	<string name="custom_color">Custom status bar color</string>
 	<string name="force_tint">Force detection of app color</string>
 	<string name="about">About</string>
-	
+	<string name="invalid_color_title">Invalid color format</string>
+	<string name="invalid_color_message">The color should be in the format #AARRGGBB or #RRGGBB</string>
+
 	<!-- About -->
 	<string name="developer">Original Developer</string>
 	<string name="developer_sum">Peter Cai (@PeterCxy)</string>

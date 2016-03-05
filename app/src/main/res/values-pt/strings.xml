@@ -34,4 +34,6 @@ Você pode obter uma cópia da licença através do link Código Fonte."</string
     <string name="reset">Repor</string>
     <string name="reset_confirm">Deseja repor?</string>
     <string name="search">Pesquisar</string>
+    <string name="invalid_color_title">Formato inválido</string>
+    <string name="invalid_color_message">A cor deve estar no formato #AARRGGBB ou #RRGGBB</string>
 </resources>

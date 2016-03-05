@@ -64,8 +64,22 @@ public class SettingsFragment extends BasePreferenceFragment
 			putBoolean(Settings.TINT_ICONS, (Boolean) newValue);
 			return true;
 		} else if (preference == mColor) {
-			putInt(Settings.CUSTOM_COLOR, Color.parseColor(newValue.toString()));
-			return true;
+			try {
+				putInt(Settings.CUSTOM_COLOR, Color.parseColor(newValue.toString()));
+				return true;
+			} catch(IllegalArgumentException e) {
+				new AlertDialog.Builder(preference.getContext())
+						.setTitle(R.string.invalid_color_title)
+						.setMessage(R.string.invalid_color_message)
+						.setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+							}
+						})
+						.setIcon(android.R.drawable.ic_dialog_alert)
+						.show();
+
+				return false;
+			}
 		} else if (preference == mForceTint) {
 			putBoolean(Settings.FORCE_TINT, (Boolean) newValue);
 			return true;
@@ -106,7 +120,11 @@ public class SettingsFragment extends BasePreferenceFragment
 	private void reload() {
 		mEnable.setChecked(getBoolean(Settings.ENABLED, true));
 		mForceTint.setChecked(getBoolean(Settings.FORCE_TINT, false));
-		mColor.setText(String.format("#%06X", 0xFFFFFF & getInt(Settings.CUSTOM_COLOR, 0)));
+		int color = getInt(Settings.CUSTOM_COLOR, 0xFF000000);
+		if((color & 0xFF000000) == 0xFF000000 && color != 0xFF000000)
+			mColor.setText(String.format("#%06X", 0xFFFFFF & color));
+		else
+			mColor.setText(String.format("#%08X", color));
 
 		if (!mPackageName.equals("global") || !mClassName.equals("global")) {
 			getPreferenceScreen().removePreference(mNav);
