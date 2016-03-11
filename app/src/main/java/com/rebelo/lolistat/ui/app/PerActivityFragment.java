@@ -3,7 +3,12 @@ package com.rebelo.lolistat.ui.app;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.BaseAdapter;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +18,21 @@ import com.rebelo.lolistat.ui.adapter.ActivityAdapter;
 import com.rebelo.lolistat.ui.base.BaseListFragment;
 import com.rebelo.lolistat.ui.model.ActivityModel;
 
+import static com.rebelo.lolistat.ui.utils.UiUtility.$;
+
 public class PerActivityFragment extends BaseListFragment<ActivityModel>
 {
-	private BaseAdapter mAdapter;
+	private ActivityAdapter mAdapter;
 	private String mTitle = "", mDefaultClassName, mPkgName;
 	private int mDefaultClassPosition = -1;
+
+	private MenuItem mSearchItem;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
 
 	@Override
 	protected BaseAdapter buildAdapter() {
@@ -97,4 +112,40 @@ public class PerActivityFragment extends BaseListFragment<ActivityModel>
 		startFragment("settings", mPkgName + "," + activity.className + "," + activity.title + "," + mTitle);
 	}
 
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.app, menu);
+
+		mSearchItem = menu.findItem(R.id.search);
+		final SearchView search = $(mSearchItem.getActionView());
+		search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				return false;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String query) {
+				mAdapter.getFilter().filter(query);
+				return true;
+			}
+		});
+
+		search.setIconified(true);
+
+		mSearchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+			@Override
+			public boolean onMenuItemActionExpand(MenuItem item) {
+				search.setIconified(false);
+				return true;
+			}
+
+			@Override
+			public boolean onMenuItemActionCollapse(MenuItem p1) {
+				search.setQuery("", false);
+				search.setIconified(true);
+				return true;
+			}
+		});
+	}
 }
