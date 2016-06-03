@@ -66,6 +66,8 @@ public class SettingsFragment extends BasePreferenceFragment
 			return true;
 		} else if (preference == mColor) {
 			try {
+				if(newValue.toString().equals(""))
+					throw new IllegalArgumentException();
 				putInt(Settings.CUSTOM_COLOR, Color.parseColor(newValue.toString()));
 				return true;
 			} catch(IllegalArgumentException e) {
