@@ -18,7 +18,7 @@
 			</intent-filter>
 			
 		</activity>
-		
+		<!--
 		<activity
 			android:name=".ui.settings.BlackListActivity"
 			android:label="@string/blacklist"
@@ -30,7 +30,7 @@
 			</intent-filter>
 
 		</activity>
-		
+		-->
 		<meta-data
 			android:name="xposedmodule"
 			android:value="true"/>

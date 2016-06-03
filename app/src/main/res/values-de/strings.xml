@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    	<string name="app_name">Lolistat</string>
-
 	 <!-- Settings -->
 	<string name="tint_navigation">Färbe  Navigationsleiste</string>
 	<string name="tint_icons">Färbe Benachrichtiungsicons</string>
-	<string name="blacklist">Blacklist</string>
-    	<string name="blacklist_sum">Deaktiviere Lolistat bei gewählten Apps</string>
-    	<string name="about">Über</string>
+	<string name="about">Über</string>
 	
 	<!-- About -->
 	<string name="developer">Entwickler</string>

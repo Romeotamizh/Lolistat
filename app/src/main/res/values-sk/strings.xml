@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Lolistat</string>
-	
 	<!-- Settings -->
 	<string name="tint_navigation">Zafarbiť navigačnú lištu</string>
 	<string name="tint_icons">Zafarbiť ikony upozornení</string>
-	<string name="blacklist">Čierna listina</string>
-	<string name="blacklist_sum">Zakáže Lolistat pre vybrané aplikácie</string>
 	<string name="about">O aplikácii</string>
 	
 	<!-- About -->

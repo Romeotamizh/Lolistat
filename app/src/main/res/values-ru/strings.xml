@@ -2,8 +2,6 @@
 <resources>
     <string name="tint_navigation">Оттенок панели навигации </string>
     <string name="tint_icons">Оттенок иконок уведомлений</string>
-    <string name="blacklist">Черный список</string>
-    <string name="blacklist_sum">Отключить Lolistat для конкретных приложений</string>
     <string name="about">О приложении</string>
     <string name="developer">Разработчик</string>
     <string name="developer_sum">Peter Cai (@PeterCxy)</string>

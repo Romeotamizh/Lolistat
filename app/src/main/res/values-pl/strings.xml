@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Lolistat</string>
-
     <!-- Settings -->
     <string name="global">Globalny (może być zastąpiony)</string>
     <string name="global_short">Globalny</string>

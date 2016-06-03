@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="MissingTranslation">
 
-    <string name="app_name">Lolistat</string>
+    <string name="app_name" translatable="false">Lolistat</string>
 	
 	<!-- Settings -->
 	<string name="global">Global (Can be overridden)</string>

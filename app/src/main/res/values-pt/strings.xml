@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about">Sobre</string>
-    <string name="app_name">Lolistat</string>
     <string name="developer">Desenvolvedor Original</string>
     <string name="developer_sum">Peter Cai (@PeterCxy)</string>
     <string name="donation">Doar</string>

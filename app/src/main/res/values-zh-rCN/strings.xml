@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">萝莉状态栏</string>
-
 	<!-- Settings -->
 	<string name="tint_navigation">导航栏变色</string>
 	<string name="tint_icons">状态栏图标洗白白</string>
-	<string name="blacklist">黑名单</string>
-	<string name="blacklist_sum">对某些app禁用萝莉状态栏</string>
 	<string name="about">关于</string>
 
 	<!-- About -->
