@@ -10,13 +10,13 @@ import android.view.MenuItem;
 import android.widget.BaseAdapter;
 import android.widget.SearchView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.rebelo.lolistat.R;
 import com.rebelo.lolistat.ui.adapter.ActivityAdapter;
 import com.rebelo.lolistat.ui.base.BaseListFragment;
 import com.rebelo.lolistat.ui.model.ActivityModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.rebelo.lolistat.ui.utils.UiUtility.$;
 
@@ -115,6 +115,9 @@ public class PerActivityFragment extends BaseListFragment<ActivityModel>
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		inflater.inflate(R.menu.app, menu);
+
+		menu.findItem(R.id.about).setVisible(false);
+		menu.findItem(R.id.show_launcher).setVisible(false);
 
 		mSearchItem = menu.findItem(R.id.search);
 		final SearchView search = $(mSearchItem.getActionView());

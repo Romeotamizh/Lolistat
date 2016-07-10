@@ -7,7 +7,13 @@
 		android:title="@string/search"
 		android:actionViewClass="android.widget.SearchView"
 		android:showAsAction="always|collapseActionView"/>
-	
+
+	<item
+		android:id="@+id/show_launcher"
+		android:title="@string/show_launcher"
+		android:showAsAction="never"
+		android:checkable="true"/>
+
 	<item
 		android:id="@+id/about"
 		android:title="@string/about"

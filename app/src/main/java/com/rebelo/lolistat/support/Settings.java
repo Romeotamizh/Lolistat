@@ -11,7 +11,9 @@ import static com.rebelo.lolistat.BuildConfig.DEBUG;
 public abstract class Settings
 {
 	private static final String TAG = Settings.class.getSimpleName();
-	
+
+	public static final String SHOW_ON_LAUNCHER = "show_launcher";
+
 	public static final String ENABLED = "enabled";
 	public static final String TINT_NAVIGATION = "tint_navigation";
 	public static final String TINT_ICONS = "tint_icons";
