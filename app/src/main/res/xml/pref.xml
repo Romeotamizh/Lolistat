@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	
+
 	<SwitchPreference
 		android:key="enabled"
 		android:title="@string/enabled"
 		android:checked="true"/>
-	
+
 	<CheckBoxPreference
 		android:key="tint_navigation"
 		android:title="@string/tint_navigation"
@@ -31,9 +31,13 @@
 		android:checked="false"
 		android:dependency="force_tint"/>
 
-	<EditTextPreference
+	<net.margaritov.preference.colorpicker.ColorPickerPreference
 		android:key="custom_color"
 		android:title="@string/custom_color"
-		android:dependency="use_custom_color" />
-	
+		defaultValue="#FF000000"
+		alphaSlider="true"
+		hexValue="true"
+		android:dependency="use_custom_color"
+	/>
+
 </PreferenceScreen>

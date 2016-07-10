@@ -2,9 +2,7 @@ package com.rebelo.lolistat.ui.app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.preference.CheckBoxPreference;
-import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.SwitchPreference;
 import android.view.Menu;
@@ -14,7 +12,10 @@ import android.view.MenuItem;
 import com.rebelo.lolistat.R;
 import com.rebelo.lolistat.support.Settings;
 import com.rebelo.lolistat.ui.base.BasePreferenceFragment;
-import static com.rebelo.lolistat.ui.utils.UiUtility.*;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import static com.rebelo.lolistat.ui.utils.UiUtility.$;
 
 public class SettingsFragment extends BasePreferenceFragment
 {
@@ -22,7 +23,7 @@ public class SettingsFragment extends BasePreferenceFragment
 	
 	private SwitchPreference mEnable;
 	private CheckBoxPreference mNav, mStatus, mForceTint, mUseCustom;
-	private EditTextPreference mColor;
+	private ColorPickerPreference mColor;
 
 	private String mPackageName, mClassName;
 
@@ -50,6 +51,8 @@ public class SettingsFragment extends BasePreferenceFragment
 		
 		// Bind
 		$$(mEnable, mNav, mStatus, mColor, mForceTint, mUseCustom);
+
+		mColor.setOnPreferenceClickListener(mColor);
 	}
 
 	@Override
@@ -65,24 +68,8 @@ public class SettingsFragment extends BasePreferenceFragment
 			putBoolean(Settings.TINT_ICONS, (Boolean) newValue);
 			return true;
 		} else if (preference == mColor) {
-			try {
-				if(newValue.toString().equals(""))
-					throw new IllegalArgumentException();
-				putInt(Settings.CUSTOM_COLOR, Color.parseColor(newValue.toString()));
-				return true;
-			} catch(IllegalArgumentException e) {
-				new AlertDialog.Builder(preference.getContext())
-						.setTitle(R.string.invalid_color_title)
-						.setMessage(R.string.invalid_color_message)
-						.setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int which) {
-							}
-						})
-						.setIcon(android.R.drawable.ic_dialog_alert)
-						.show();
-
-				return false;
-			}
+			putInt(Settings.CUSTOM_COLOR, (Integer)newValue);
+			return true;
 		} else if (preference == mForceTint) {
 			putBoolean(Settings.FORCE_TINT, (Boolean) newValue);
 			return true;
@@ -127,11 +114,7 @@ public class SettingsFragment extends BasePreferenceFragment
 		mEnable.setChecked(getBoolean(Settings.ENABLED, true));
 		mForceTint.setChecked(getBoolean(Settings.FORCE_TINT, false));
 		mUseCustom.setChecked(getBoolean(Settings.USE_CUSTOM, false));
-		int color = getInt(Settings.CUSTOM_COLOR, 0xFF000000);
-		if((color & 0xFF000000) == 0xFF000000 && color != 0xFF000000)
-			mColor.setText(String.format("#%06X", 0xFFFFFF & color));
-		else
-			mColor.setText(String.format("#%08X", color));
+		mColor.onColorChanged(getInt(Settings.CUSTOM_COLOR, 0xFF000000));
 
 		if (!mPackageName.equals("global") || !mClassName.equals("global")) {
 			getPreferenceScreen().removePreference(mNav);
