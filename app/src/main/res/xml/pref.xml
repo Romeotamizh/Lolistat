@@ -32,7 +32,7 @@
 		android:dependency="force_tint"/>
 
 	<net.margaritov.preference.colorpicker.ColorPickerPreference
-		android:key="custom_color"
+		android:key="custom_color_int"
 		android:title="@string/custom_color"
 		defaultValue="#FF000000"
 		alphaSlider="true"

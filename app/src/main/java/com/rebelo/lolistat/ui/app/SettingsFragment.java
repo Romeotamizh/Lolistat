@@ -42,7 +42,7 @@ public class SettingsFragment extends BasePreferenceFragment
 		mEnable = $(this, Settings.ENABLED);
 		mNav = $(this, Settings.TINT_NAVIGATION);
 		mStatus = $(this, Settings.TINT_ICONS);
-		mColor = $(this, Settings.CUSTOM_COLOR);
+		mColor = $(this, Settings.CUSTOM_COLOR_INT);
 		mForceTint = $(this, Settings.FORCE_TINT);
 		mUseCustom = $(this, Settings.USE_CUSTOM);
 
